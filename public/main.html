@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luke's Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">Huffines' Wood Products</span>
+    <a href="Home"
+       hx-get="/home.html"
+       hx-target="#content"
+       hx-push-url="false"
+       class="active">Home</a>
+    <a href="/about"
+       hx-get="/about"
+       hx-target="#content"
+       hx-push-url="false">About</a>
+    <a href="/contact"
+       hx-get="/contact"
+       hx-target="#content"
+       hx-push-url="false">Contact</a>
+    <a href="/services"
+       hx-get="/services"
+       hx-target="#content"
+       hx-push-url="false">Services</a>
+    <a href="/faqs"
+       hx-get="/faqs.html"
+       hx-target="#content"
+       hx-push-url="false">FAQ's</a>
+
+  </nav>
+
+  <div id="content">
+    <h1>Hello World</h1>
+    <p>Welcome to my page.</p>
+  </div>
+
+</body>
+</html>
