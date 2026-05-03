@@ -50,3 +50,77 @@ nav a.active {
   padding: 0 1rem;
 }
 
+
+
+.faq-list {                                      
+  list-style: none;  
+  padding: 0;
+}                                                
+ 
+.faq-list li {                                   
+  border-left: 4px solid #e63946;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}                                                
+ 
+.faq-list li p {                                 
+  margin: 0.25rem 0 0 0;
+  color: #555;                                   
+}
+
+  .hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;                              
+    border: none;    
+    cursor: pointer;                               
+  }                 
+   
+  @media (max-width: 768px) {
+    .hamburger {                                   
+      display: block;
+    }                                              
+     
+    .nav-links {
+      display: none;
+      flex-direction: column;
+    }                        
+     
+    .nav-links.open {
+      display: flex;                               
+    }
+  }      
+
+.nav-links {    
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {                      
+    nav {
+      flex-wrap: wrap;                             
+      height: auto;
+      padding: 0.75rem 2rem;                       
+    }
+                                                   
+    .hamburger {  
+      color: white;
+    }
+
+    .nav-links {                                   
+      display: none;
+      flex-direction: column;                      
+      width: 100%;
+      gap: 0;
+    }
+
+    .nav-links.open {                              
+      display: flex;
+    }                                              
+                  
+    .nav-links a {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #ffffff22;
+    }                                              
+  }
