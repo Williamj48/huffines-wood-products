@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,13 +17,13 @@ nav {
   display: flex;
   align-items: center;
   gap: 2rem;
-  height: 60px;
+  height: 80px;
 }
 
 nav .logo {
   color: white;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin-right: auto;
 }
 
@@ -44,28 +46,59 @@ nav a.active {
   margin: 2rem auto;
   padding: 0 1rem;
 }
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  padding: 2rem;
+  gap: 2rem;
+}
+
 .perfect-pic {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  width: 100%;
+}
+
+.home-text h2 {
+  font-size: 2rem;
 }
 
 
 
-.faq-list {                                      
-  list-style: none;  
-  padding: 0;
-}                                                
- 
-.faq-list li {                                   
+.faq-section {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.faq-section h1 {
+  margin-bottom: 2rem;
+}
+
+.faq-item {
   border-left: 4px solid #e63946;
   padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
-}                                                
- 
-.faq-list li p {                                 
-  margin: 0.25rem 0 0 0;
-  color: #555;                                   
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.faq-item summary {
+  font-weight: 700;
+  font-size: 1.1rem;
+  list-style: none;
+}
+
+.faq-item summary::after {
+  content: " +";
+  color: #e63946;
+}
+
+.faq-item[open] summary::after {
+  content: " −";
+}
+
+.faq-item p {
+  margin-top: 0.75rem;
+  color: #555;
 }
 
 
@@ -114,5 +147,172 @@ nav a.active {
     .nav-links a {
       padding: 0.75rem 0;
       border-bottom: 1px solid #ffffff22;
-    }                                              
+    }
+
+    .home-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .perfect-pic {
+      width: 100%;
+    }
   }
+
+.contact {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  border-left: 4px solid #e63946;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-list strong {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #999;
+  margin-bottom: 0.25rem;
+}
+
+.contact-list a {
+  font-size: 1.2rem;
+  color: #1a1a2e;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  color: #e63946;
+}
+
+.order-form-home {
+  margin-top: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e63946;
+  background: transparent;
+  border: 2px solid #e63946;
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+
+.order-form-home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e63946;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  z-index: -1;
+}
+
+.order-form-home:hover {
+  color: white;
+}
+
+.order-form-home:hover::before {
+  transform: scaleX(1);
+}
+
+.order-form-home span,
+.order-form-home {
+  position: relative;
+  z-index: 1;
+}
+
+.order-section {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.order-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.order-section p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.order-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+  outline: none;
+  border-color: #e63946;
+}
+
+.order-form button[type="submit"] {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.order-form button[type="submit"]:hover {
+  background: #c1121f;
+}

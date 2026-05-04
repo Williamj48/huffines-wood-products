@@ -1,0 +1,56 @@
+<section class="order-section">
+  <h2>Place an Order</h2>
+  <p>Fill out the form below and we'll get back to you to confirm your delivery.</p>
+
+  <form class="order-form" method="POST" action="https://formspree.io/f/mlgzjepp">
+
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Your full name" required>
+    </label>
+
+    <label>
+      Phone
+      <input type="tel" name="phone" placeholder="406-000-0000" required>
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" placeholder="you@example.com">
+    </label>
+
+    <label>
+      Delivery Address
+      <input type="text" name="address" placeholder="Street, City" required>
+    </label>
+
+    <label>
+      Wood Species
+      <select name="species" required>
+        <option value="">Select a species</option>
+        <option value="douglas-fir">Douglas Fir</option>
+        <option value="oak">Oak</option>
+        <option value="pine">Pine</option>
+        <option value="specialty">Specialty (contact for availability)</option>
+      </select>
+    </label>
+
+    <label>
+      Quantity (cords)
+      <input type="text" name="quantity" placeholder="e.g. 1, 1/2, 1 1/4, 0.5" pattern="(\d+\s+)?\d+\/\d+|\d*\.?\d+" title="Enter a whole number, fraction (1/2), mixed number (1 1/2), or decimal (0.5)" required>
+    </label>
+
+    <label>
+      Preferred Delivery Date
+      <input type="date" name="deliveryDate">
+    </label>
+
+    <label>
+      Notes
+      <textarea name="notes" rows="4" placeholder="Stacking help, gate codes, special instructions..."></textarea>
+    </label>
+
+    <button type="submit" class="order-form-home">Submit Order</button>
+
+  </form>
+</section>
