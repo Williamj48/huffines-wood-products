@@ -6,7 +6,16 @@
   <title>Wood</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-</head>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+  <script src="map-zones.js"></script>
+
+  </head>
 
 
 <body>
@@ -24,18 +33,14 @@
    	 	   hx-get="contact.html"
    	 	   hx-target="#content"
    	 	   hx-push-url="false">Contact</a>
-   	 	<a href="services"
-   	 	   hx-get="services.html"
+   	 	<a href="gallery"
+   	 	   hx-get="gallery.html"
    	 	   hx-target="#content"
-   	 	   hx-push-url="false">Services</a>
+   	 	   hx-push-url="false">Gallery</a>
    	 	<a href="faqs"
    	 	   hx-get="faqs.html"
    	 	   hx-target="#content"
    	 	   hx-push-url="false">FAQ's</a>
-   	 	<a href="products"
-   	 	   hx-get="products.html"
-   	 	   hx-target="#content"
-   	 	   hx-push-url="false">Products</a>
    	 	<a href="map"
    	 	   hx-get="map.html"
    	 	   hx-target="#content"
@@ -64,6 +69,37 @@ document.body.addEventListener('htmx:afterSwap', function(evt) {
   }
 });
 
+<!-- Leaflet map JS  htmx:afterSettle is needed so that the dom settles properly -->
+document.body.addEventListener('htmx:afterSettle', function(evt) {
+  if (!document.getElementById('map')) return;
+  requestAnimationFrame(() => {
+    const map = L.map('map').setView([45.7, -111.1], 8);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+      maxZoom: 19
+    }).addTo(map);
+
+    <!-- Delivery zones JS -->
+    (window.deliveryZones || []).forEach(zone => {
+      const poly = L.polygon(zone.coords, {
+        color: '#1a1a2e',
+        weight: 1.5,
+        fillColor: '#e63946',
+        fillOpacity: 0.25
+      }).addTo(map);
+
+      poly.bindPopup(
+        `<strong>${zone.name}</strong><br>${zone.description}<br><br>Delivery fee: <strong>$${zone.price}</strong>`
+      );
+
+      poly.on('mouseover', function() { this.setStyle({ fillOpacity: 0.45 }); });
+      poly.on('mouseout',  function() { this.setStyle({ fillOpacity: 0.25 }); });
+    });
+  });
+});
+
+
+<!-- Hamburger menu -->
 document.querySelectorAll('.nav-links a').forEach(function(link) {
   link.addEventListener('click', function() {
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));

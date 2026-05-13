@@ -102,16 +102,16 @@ nav a.active {
 }
 
 
-  .hamburger {    
+  .hamburger {
     display: none;
     font-size: 1.8rem;
-    background: none;                              
+    background: none;
     border: none;
-    cursor: pointer;                               
-    color: white; 
+    cursor: pointer;
+    color: white;
   }
 
-.nav-links {    
+.nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
@@ -119,31 +119,31 @@ nav a.active {
 
 
 
-  @media (max-width: 768px) {                      
+  @media (max-width: 768px) {
     nav {
-      flex-wrap: wrap;                             
+      flex-wrap: wrap;
       height: auto;
-      padding: 0.75rem 2rem;                       
+      padding: 0.75rem 2rem;
     }
 
     .hamburger {
       display: block;
     }
-                                                   
 
-    .nav-links {                                   
+
+    .nav-links {
       display: none;
-      flex-direction: column;                      
+      flex-direction: column;
       width: 100%;
       gap: 0;
     }
 
 
 
-    .nav-links.open {                              
+    .nav-links.open {
       display: flex;
-    }                                              
-                  
+    }
+
     .nav-links a {
       padding: 0.75rem 0;
       border-bottom: 1px solid #ffffff22;
@@ -315,4 +315,18 @@ nav a.active {
 
 .order-form button[type="submit"]:hover {
   background: #c1121f;
+}
+
+
+.map-section h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+}
+
+#map {
+  height: 500px;
+  margin-top: 1rem;
+  border: 2px solid;
+
 }
